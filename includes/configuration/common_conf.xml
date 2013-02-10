@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<production>
+		<baseurl>http://www.c4powered.co.uk/</baseurl>
+		
+		<urls>
+			<css>/assets/stylesheets/</css>
+			<scripts>/assets/javascripts/</scripts>
+			<images>/assets/images/</images>
+		</urls>
+		
+		<includes>/home/c4power/public_html/includes/</includes>
+		<copyrightyear>2012</copyrightyear>
+
+		<database>
+			<id>connection</id>
+			<type>mysql</type>
+			<host>localhost</host>
+			<hostName>localhost</hostName>
+			<port>3306</port>
+			<username>c4power_default</username>
+			<password>etpaypal123</password>
+			<schema>c4power_default</schema>
+		</database>
+		
+		<smarty>
+			<templates>templates</templates>
+			<compiled>templates_c</compiled>
+			<functions>functions</functions>
+		</smarty>
+		
+		<session>
+			<active>files</active>
+			<files>
+				<save_path>/home/c4power/public_html/tmp</save_path>
+			</files>
+		</session>
+	</production>
+</configuration>
