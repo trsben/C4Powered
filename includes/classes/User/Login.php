@@ -54,7 +54,7 @@ class User_Login extends GenericObject
 	}
 
 
-	public function deleteCookie()
+	public static function deleteCookie()
 	{
 		CookieStore::clear(self::COOKIE_NAME);
 	}

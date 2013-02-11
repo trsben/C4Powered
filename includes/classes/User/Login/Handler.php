@@ -55,7 +55,7 @@ class User_Login_Handler
 
 	public function logout()
 	{
-		UserLogin::removeLoginCookieByUserId($this->session->userID);
+		User_Login::removeLoginCookieByUserId($this->session->userID);
 		return $this->logoutActions();
 	}
 

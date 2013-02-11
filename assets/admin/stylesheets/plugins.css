@@ -136,7 +136,7 @@ table.fc-border-separate { border-collapse: separate; }
 /* ===== File uploader  ===== */
 
 .plupload_buttons { margin: 7px 0; }
-.plupload_buttons::after { content: ""; display: block; clear: both; }
+.plupload_buttons:after { content: ""; display: block; clear: both; } 
 .plupload_header { display: none; }
 .plupload_start { float: left; }
 .plupload_buttons > a.btn-primary { margin-left: 10px; }
@@ -240,8 +240,4 @@ li.ui-timepicker-selected .ui-timepicker-duration, .ui-timepicker-list li:hover 
 .colorpicker-color div { height: 10px; }
 .input-append.color .add-on { padding: 6px; }
 .input-append.color .add-on i, .input-prepend.color .add-on i { display: block; cursor: pointer; width: 16px; height: 16px; } 
-
-
-
-
 

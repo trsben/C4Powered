@@ -3,11 +3,12 @@
 $adminPage = true;
 require_once("../includes/bootstrap.php");
 
-// redirect them if they are logged in
-if ($session->isLoggedIn()) {
-	httpRedirect($config->baseurl . "login.php");
+// Redirect them if they are logged in
+if (!$session->isLoggedIn() || !$session->getUserObject()->is_admin) {
+	httpRedirect($config->baseurl_backend . "login.php");
 }
 
+$smarty->assign('dashboardTitle', 'Dashboard');
 $smarty->assign('pageClass', 'admin-index');
 
 // Display the page template

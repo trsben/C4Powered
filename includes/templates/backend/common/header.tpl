@@ -57,3 +57,29 @@
 	<script type="text/javascript" src="{$jsurl}charts/chart.js"></script>
 </head>
 <body class="{$pageClass}">
+{if $isLoggedIn && $currentMember->is_admin}
+<div class="wrapper">
+    <div class="sidebar">
+        <a class="logo"><img src="{$imageurl}logo.png" alt="" /></a>
+        
+        {include file='common/navigation.tpl'}
+    </div>
+
+    <div class="content">
+        <div class="page-header">
+            <h5><i class="font-home"></i>{$dashboardTitle}</h5>
+            <ul class="topnav">
+                <li class="topuser">
+                    <a title="#" data-toggle="dropdown"><span>{$currentMember->title}</span><i class="caret"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{$url}users/user.php?id={$currentMember->id}" title=""><span class="user-profile"></span>My profile</a></li>
+                    </ul>
+                </li>
+                <li><a href="{$url}settings.php" title=""><b class="settings"></b></a></li>
+                <li class="sidebar-button"><a href="#" title=""><b class="responsive-nav"></b></a></li>
+                <li><a href="{$url}logout.php" title=""><b class="logout"></b></a></li>
+            </ul>
+        </div>
+
+        <div class="body">
+{/if}

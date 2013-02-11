@@ -23,27 +23,33 @@ $db = Database::getInstance($config->database->id);
 // Setup the smarty templating engine
 $smarty = SmartySingleton::getInstance();
 
-$smarty->compile_dir   = $config->includes . $config->smarty->compiled;
 $smarty->plugins_dir[] = $config->includes . $config->smarty->functions;
 
 // Setup smarty variables depending on if backend or frontend
 if (isset($adminPage) && $adminPage === true) {
+	$smarty->compile_dir   = $config->includes . $config->smarty->compiled_backend;
 	$smarty->template_dir  = $config->includes . $config->smarty->templates_backend;
 
-	$smarty->assign("url",         $config->baseurl);
+	$smarty->assign("url",         $config->baseurl_backend);
 	$smarty->assign("cssurl",      $config->urls_backend->css);
 	$smarty->assign("jsurl",       $config->urls_backend->scripts);
 	$smarty->assign("imageurl",    $config->urls_backend->images);
-	$smarty->assign("currenturl",  $_SERVER['REQUEST_URI']);
 }
 else {
+	$smarty->compile_dir   = $config->includes . $config->smarty->compiled_frontend;
 	$smarty->template_dir  = $config->includes . $config->smarty->templates_frontend;
 
 	$smarty->assign("url",         $config->baseurl);
 	$smarty->assign("cssurl",      $config->urls_frontend->css);
 	$smarty->assign("jsurl",       $config->urls_frontend->scripts);
 	$smarty->assign("imageurl",    $config->urls_frontend->images);
-	$smarty->assign("currenturl",  $_SERVER['REQUEST_URI']);
+}
+$smarty->assign("currenturl",  $_SERVER['REQUEST_URI']);
+
+// If debug mode then turn off caching
+if ($config->debug == 'true') {
+	$smarty->caching = false;
+	$smarty->force_compile = false;
 }
 
 // Set up breadcrumbs

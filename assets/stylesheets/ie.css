@@ -18,3 +18,4 @@ select, input[type="text"], input[type="password"], input[type="datetime"], inpu
 .ui-spinner > input[type="text"] { line-height: 14px; }
 div.selector span { line-height: 26px; }
 select { height: auto; line-height: auto; }
+.navigation > li > a, .navigation.condensed > li:first-child > a, .navigation.condensed > li:last-child > a { border-radius: 0; }
