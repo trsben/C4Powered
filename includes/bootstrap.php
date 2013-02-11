@@ -23,16 +23,28 @@ $db = Database::getInstance($config->database->id);
 // Setup the smarty templating engine
 $smarty = SmartySingleton::getInstance();
 
-$smarty->template_dir  = $config->includes . $config->smarty->templates;
 $smarty->compile_dir   = $config->includes . $config->smarty->compiled;
 $smarty->plugins_dir[] = $config->includes . $config->smarty->functions;
 
-// Register some basic variables for smarty
-$smarty->assign("url",         $config->baseurl);
-$smarty->assign("cssurl",      $config->urls->css);
-$smarty->assign("jsurl",       $config->urls->scripts);
-$smarty->assign("imageurl",    $config->urls->images);
-$smarty->assign("currenturl",  $_SERVER['REQUEST_URI']);
+// Setup smarty variables depending on if backend or frontend
+if (isset($adminPage) && $adminPage === true) {
+	$smarty->template_dir  = $config->includes . $config->smarty->templates_backend;
+
+	$smarty->assign("url",         $config->baseurl);
+	$smarty->assign("cssurl",      $config->urls_backend->css);
+	$smarty->assign("jsurl",       $config->urls_backend->scripts);
+	$smarty->assign("imageurl",    $config->urls_backend->images);
+	$smarty->assign("currenturl",  $_SERVER['REQUEST_URI']);
+}
+else {
+	$smarty->template_dir  = $config->includes . $config->smarty->templates_frontend;
+
+	$smarty->assign("url",         $config->baseurl);
+	$smarty->assign("cssurl",      $config->urls_frontend->css);
+	$smarty->assign("jsurl",       $config->urls_frontend->scripts);
+	$smarty->assign("imageurl",    $config->urls_frontend->images);
+	$smarty->assign("currenturl",  $_SERVER['REQUEST_URI']);
+}
 
 // Set up breadcrumbs
 $breadcrumb = new Breadcrumb();
@@ -40,5 +52,8 @@ $breadcrumb = new Breadcrumb();
 // Setup the session
 $session = new User_Session($config->session);
 
-//$smarty->assign_by_ref("currentMember", $session->getUserObject());
-//$smarty->assign("isLoggedIn", $session->isLoggedIn());
+// Set current member if logged in
+if ($currentMember = $session->getUserObject()) {
+	$smarty->assign_by_ref("currentMember", $currentMember);
+}
+$smarty->assign("isLoggedIn", $session->isLoggedIn());

@@ -3,11 +3,17 @@
 	<production>
 		<baseurl>http://www.c4powered.co.uk/</baseurl>
 		
-		<urls>
+		<urls_frontend>
 			<css>/assets/stylesheets/</css>
 			<scripts>/assets/javascripts/</scripts>
 			<images>/assets/images/</images>
-		</urls>
+		</urls_frontend>
+
+		<urls_backend>
+			<css>/assets/admin/stylesheets/</css>
+			<scripts>/assets/admin/javascripts/</scripts>
+			<images>/assets/admin/images/</images>
+		</urls_backend>
 		
 		<includes>/home/c4power/public_html/includes/</includes>
 		<copyrightyear>2012</copyrightyear>
@@ -24,7 +30,8 @@
 		</database>
 		
 		<smarty>
-			<templates>templates</templates>
+			<templates_frontend>templates/frontend</templates_frontend>
+			<templates_backend>templates/backend</templates_backend>
 			<compiled>templates_c</compiled>
 			<functions>functions</functions>
 		</smarty>
