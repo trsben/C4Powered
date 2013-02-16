@@ -1,6 +1,6 @@
 <?php
 
-class News_ArticleCollection extends GenericObjectCollection
+class News_Article_Collection extends GenericObjectCollection
 {
 	protected $db;
 

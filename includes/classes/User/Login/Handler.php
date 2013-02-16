@@ -22,14 +22,14 @@ class User_Login_Handler
 
 	public function attemptLoginUsingRememberMe()
 	{
-		$loginDetails = UserLogin::getLoginByCode(isset($_COOKIE[UserLogin::COOKIE_NAME]) ? $_COOKIE[UserLogin::COOKIE_NAME] : -1);
+		$loginDetails = User_Login::getLoginByCode(isset($_COOKIE[User_Login::COOKIE_NAME]) ? $_COOKIE[User_Login::COOKIE_NAME] : -1);
 		if (is_null($loginDetails))
 			return false;
 
 		$userRow = $this->getUserRowForId($loginDetails->userId);
 		$this->securedLogin($userRow);
 		$this->updateLoginCount($userRow);
-		UserLogin::addLoginCookie($userRow['id']);
+		User_Login::addLoginCookie($userRow['id']);
 	}
 
 	protected function getUserRowForId($id)
@@ -71,7 +71,7 @@ class User_Login_Handler
 		$this->session->_restricted = (bool) $value;
 	}
 	
-		public function login($identity, $password)
+	public function login($identity, $password)
 	{
 		$userRow = $this->verifyUserLoginCredentials($identity, $password);
 		if (!empty($userRow)) {
@@ -88,7 +88,7 @@ class User_Login_Handler
 	{
 		$status = $this->login($identity, $password);
 		if ($status) {
-			UserLogin::addLoginCookie($this->session->userID);
+			User_Login::addLoginCookie($this->session->userID);
 			return true;
 		} else {
 			return false;

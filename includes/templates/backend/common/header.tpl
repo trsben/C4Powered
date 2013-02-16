@@ -81,5 +81,27 @@
             </ul>
         </div>
 
+        {if count($formErrors)}
+			{foreach from=$formErrors item=error}
+				<div class="notice">
+					<div class="note note-danger">
+						<button class="close" type="button">×</button>
+						{$error}
+					</div>
+				</div>
+			{/foreach}
+		{/if}
+
+		{if count($formNotices)}
+			{foreach from=$formNotices item=notice}
+				<div class="notice">
+					<div class="note note-success">
+						<button class="close" type="button">×</button>
+						{$notice}
+					</div>
+				</div>
+			{/foreach}
+		{/if}
+
         <div class="body">
 {/if}

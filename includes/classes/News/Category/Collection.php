@@ -13,9 +13,9 @@ class News_Category_Collection extends GenericObjectCollection
 		$this->db = Database::getInstance();
 	}
 
-	public function loadCategories($displayAll = true)
+	public function loadCategories($displayOnly = true)
 	{		
 		$this->removeAllItems();
-		$this->addItemsFromDatabase($this->_tableName, "id", "display = true", array("sort ASC"));
+		$this->addItemsFromDatabase($this->_tableName, "id", $displayOnly ? "display = true" : null, array("sort ASC"));
 	}
 }

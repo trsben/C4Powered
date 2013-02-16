@@ -10,6 +10,7 @@ class Page extends GenericObject
 		"display"        => "display",
 		"created"        => "created",
 		"updated"        => "updated",
+		"display"        => "display",
 		"title"     	 => "title",
 		"strapline" 	 => "strapline",
 		"text"   	 	 => "text"

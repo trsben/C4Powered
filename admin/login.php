@@ -7,6 +7,8 @@ if ($session->isLoggedIn() && $session->getUserObject()->is_admin) {
 	httpRedirect("/admin");
 }
 
+$formErrors = array();
+
 // Check for login attempt
 $formValues = $request->getPostVariables();
 if ($formValues['submit']) {
@@ -17,16 +19,18 @@ if ($formValues['submit']) {
 	else {
 		$formErrors['main'] = "Login details incorrect";
 	}
+
 }
-else {
-	$formErrors['main'] = "You are required to log in using a admin account to view this page.";
+
+if (empty($formErrors) && !$user->is_admin) {
+	$formErrors['main'] = "You do not have the current permissions to view this page";
 }
 
 // Assign vars
 $smarty->assign("formErrors", $formErrors);
 $smarty->assign("formValues", $formValues);
-$smarty->assign('pageClass', 'admin-login');
+$smarty->assign("pageClass", "admin-login");
 
 // Display the page template
-$smarty->display('login.tpl');
+$smarty->display("login.tpl");
 exitScript();

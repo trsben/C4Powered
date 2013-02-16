@@ -83,7 +83,7 @@ select[multiple] { font-size: 12px; }
 
 /*===== Login page =====*/
 
-.login-wrapper { border-top: 3px solid #97bd47; }
+.login-wrapper { border-top: 3px solid #3485AE; }
 .login { width: 284px; height: 410px; position: absolute; top: 50%; left: 50%; margin: -205px 0 0 -142px; }
 .login .control-group { padding: 16px 16px 0 16px; border: none; }
 .login-btn { margin: 16px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -ms-box-sizing: border-box; }
@@ -399,7 +399,7 @@ background: url(../images/elements/ui/progress_overlay.png), linear-gradient(top
 .content > .body { padding: 20px; }
 .body { padding: 16px; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; }
 .block { margin-top: 30px; }
-.wrapper { padding: 0 20px 20px 0; position: relative; clear: both; border-top: 3px solid #97BD47; }
+.wrapper { padding: 0 20px 20px 0; position: relative; clear: both; border-top: 3px solid #3485AE; }
 .content { margin: 20px 0 0 220px; background: url(../images/backgrounds/bg.png); border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; }
 .subtitle { font-weight: bold; display: block; }
 .subtitle code { margin-left: 6px; font-weight: normal; }

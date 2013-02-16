@@ -10,6 +10,7 @@ class User extends GenericObject
 		"lastname"                 => "lastname",
 		"password"                 => "password",
 		"email"                    => "email",
+		"created"				   => "created",
 		"activated"                => "activated",
 		"login_count"              => "login_count",
 		"last_ip"                  => "last_ip",
