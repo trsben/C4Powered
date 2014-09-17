@@ -26,7 +26,7 @@
 			<hostName>localhost</hostName>
 			<port>3306</port>
 			<username>c4power_default</username>
-			<password>etpaypal123</password>
+			<password>*</password>
 			<schema>c4power_default</schema>
 		</database>
 		
